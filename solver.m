@@ -2,7 +2,7 @@ function [t,y,delta_vec] = solver(data,motion)
 
 t     = [0];
 y     = [data.U_initial 0 0]; % Initial conditions 
-tr    = data.t;     %rudder execution time (s)
+tr    = data.dt_r;    %rudder execution time (s)
 if ~isfield(data, 't') || tr == 0 tr=1;    %set to 1 s if tr not specified in the file
 end
 delta_max = data.delta_c; % [deg] Maximum rudder deflection
