@@ -13,17 +13,10 @@
 
 %INITIAL VALUES
 0.3086		%U_initial
-0		%delta_initial
-20		%delta_c
+0		    %delta_initial
 22.5		%delta_star
 5.35		%n_initial
 5.35		%n_p
-20		%psi_c
-
-%SOLVER PARAMETERS
-150		%T_final
-0		%t
-0.1		%dT
 
 %HYDRODYNAMIC DERIVATIVES
 -0.0241		%X_0
@@ -54,6 +47,7 @@
 -0.0980		%k_2
 
 %RUDDER PARAMETERS
+1           %nb_rud
 0.129		%H
 0.129		%a_H
 -0.272		%x_H

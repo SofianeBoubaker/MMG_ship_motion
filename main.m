@@ -1,15 +1,12 @@
 clc
 
-nb_rud = input('Number of rudders: ');
 motion = input('Motion test (0: turning / 1: zigzag): ');
-
-if motion
-    filename = 'input_KVLCC1_zigzag.txt'; %import file data
-else
-    filename = 'input_KVLCC1_turning.txt';
-end
+filename = input('input file name ("filename.txt"): ');
 data = readFile(filename);
-data.('nb_rud') = nb_rud;
+data.('dt_r') = input('rudder execution time step (s): ');
+disp('info: rudder evolution angle is linear: ');
+data.('T_final') = input('simulation time (s): ');
+data.('delta_c') = input('critical rudder angle (deg): ');
 
 [t,y,delta] = solver(data,motion);
 
