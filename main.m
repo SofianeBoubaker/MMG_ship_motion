@@ -63,15 +63,15 @@ else
     i = 1;
     check = 0;
     while i <=length(psi) && check<2
-        if y(i,3)<0 && check==0
-            OSA_1 = psi(i)*180/pi-abs(data.delta_c);
+        if data.delta_c * y(i,3)<0 && check==0
+            OSA_1 = abs(abs(psi(i)*180/pi)-abs(data.delta_c));
             check = 1;
-            disp(['1st Overshoot Angle = ',num2str(OSA_1),' m'])
+            disp(['1st Overshoot Angle = ',num2str(OSA_1),' deg'])
         end
-        if y(i,3)>0 && check==1
-            OSA_2 = abs(psi(i))*180/pi-abs(data.delta_c);
+        if data.delta_c * y(i,3)>0 && check==1
+            OSA_2 = abs(abs(psi(i)*180/pi)-abs(data.delta_c));
             check=2;
-            disp(['2st Overshoot Angle = ',num2str(OSA_2),' m']) 
+            disp(['2st Overshoot Angle = ',num2str(OSA_2),' deg']) 
         end
         i=i+1;
     end
