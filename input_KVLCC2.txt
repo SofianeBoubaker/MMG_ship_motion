@@ -3,18 +3,18 @@
 58  		%B (m)
 20.8    	%d (m)
 0.81		%C_B (-)
-0.035		%LCG (m)
+11.2		%LCG (m)
 
 %HYDROSTATIC PROPERTIES
-0.0022		%m_x (kg)
+0.022		%m_x (kg)
 0.223		%m_y (kg)
 0.011		%J_z (kg/)
 
 %INITIAL VALUES
-7.9732		%U_initial (m/s)
+15.5		%U_initial (m/s)
 0		    %delta_initial (deg)
-		%delta_star (deg/s)
-1.53    %n_p (rps)
+2.34		%delta_star (deg/s)
+1.53       %n_p (rps)
 
 %HYDRODYNAMIC DERIVATIVES
 -0.022		%X_0 (-)

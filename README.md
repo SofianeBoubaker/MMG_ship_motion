@@ -39,15 +39,12 @@ Propeller parameters: propeller diameter, thrust deduction factor, longitudinal 
 Rudder parameters: number of rudder, rudder span, factor of lateral force due to steering, application point of lateral force factor due to steering, deduction factor due to rudder resistance, ratio of wake fraction at propeller and rudder positions, experimental constant for expressing rudder longitudinal incoming flow, longitudinal positions of rudder, flow straightening factor due to yaw motion, rudder aspect ratio,profile area of moveable part of rudder, flow straightening factor due to sway motion for both starboard and port side turnings 
 ⚠️ only 1 rudder is currently supported
 
-Example input files for KVLCC1 are based on reference [2] and [3]
+Example input files for KVLCC1 are based on reference [2] 
 
 ---
 
 ## Reference
 
-[1] Yoshimura, Y., Yasukawa, H., Sakuno, R., (2019, February). Practical maneuvering simulation method of ships considering the roll-coupling effect 
-DOI: https://doi.org/10.1007/s00773-014-0293-y
+[1] Yasukawa, H., Yoshimura, Y. Introduction of MMG standard method for ship maneuvering predictions. J Mar Sci Technol 20, 37–52 (2015). https://doi.org/10.1007/s00773-014-0293-y
 
-[2] Aksu, E., & Köse, E. (2017). Evaluation of Mathematical Models for Tankers' Manoeuvring Motions.
-
-[3] Yoshimura, Y., Ueno, M., & Tsukada, Y. (2008). Analysis of steady hydrodynamic force components and prediction of manoeuvring ship motion with KVLCC1, KVLCC2 and KCS. In Workshop Proceedings of SIMMAN2008 (Vol. 1, pp. E80-E86).
+[2] Yoshimura, Y., Ueno, M., & Tsukada, Y. (2008). Analysis of steady hydrodynamic force components and prediction of manoeuvring ship motion with KVLCC1, KVLCC2 and KCS. In Workshop Proceedings of SIMMAN2008 (Vol. 1, pp. E80-E86).
