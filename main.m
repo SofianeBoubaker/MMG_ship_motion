@@ -4,7 +4,7 @@ motion = input('Motion test (0: turning / 1: zigzag): ');
 filename = input('input file name ("filename.txt"): ');
 data = readFile(filename);
 data.('dt_r') = input('rudder execution time step (s): ');
-disp('info: rudder evolution angle is linear: ');
+disp('info: rudder evolution angle is linear');
 data.('T_final') = input('simulation time (s): ');
 data.('delta_c') = input('critical rudder angle (deg): ');
 data.('rho') =  1025; %m3/s water density
@@ -28,36 +28,37 @@ if motion == 0
         if abs(psi(i))>=pi/2 && check==0
             check = 1;
             ind_90 = i;
+            x_90  = x_pos(ind_90);
+            y_90  = y_pos(ind_90);
+            disp(['Advance = ',num2str(x_90),' m'])
+            disp(['Transfer = ',num2str(y_90),' m'])
+
         end
         if abs(psi(i))>=pi && check==1
             ind_180 = i;
             check=2;
+            y_180 = y_pos(ind_180);
+            disp(['Tactical diameter = ',num2str(y_180),' m'])
         end
         if abs(psi(i))>=(3*pi) && check==2
             ind_540 = i;
             check=3;
+            y_540 = y_pos(ind_540);
         end
         if abs(psi(i))>=(4*pi) && check==3
             ind_720 = i;
             check=4;
+             y_720 = y_pos(ind_720);
+                disp(['Steady turning diameter = ',num2str(y_540-y_720),' m'])
+                disp(['Steady yaw rate = ',num2str(y(end,3)*180/pi),' deg/s'])
+                disp(['Steady turning speed = ',num2str(U(end)),' m/s'])
         end
         i=i+1;
         if check==4
             break
         end
     end
-    
-    x_90  = x_pos(ind_90);
-    y_90  = y_pos(ind_90);
-    y_180 = y_pos(ind_180);
-    y_540 = y_pos(ind_540);
-    y_720 = y_pos(ind_720);
-    disp(['Advance = ',num2str(x_90),' m'])
-    disp(['Transfer = ',num2str(y_90),' m'])
-    disp(['Tactical diameter = ',num2str(y_180),' m'])
-    disp(['Steady turning diameter = ',num2str(y_540-y_720),' m'])
-    disp(['Steady yaw rate = ',num2str(y(end,3)*180/pi),' deg/s'])
-    disp(['Steady turning speed = ',num2str(U(end)),' m/s'])
+ 
 else
     i = 1;
     check = 0;
@@ -65,15 +66,16 @@ else
         if y(i,3)<0 && check==0
             OSA_1 = psi(i)*180/pi-abs(data.delta_c);
             check = 1;
+            disp(['1st Overshoot Angle = ',num2str(OSA_1),' m'])
         end
         if y(i,3)>0 && check==1
             OSA_2 = abs(psi(i))*180/pi-abs(data.delta_c);
             check=2;
+            disp(['2st Overshoot Angle = ',num2str(OSA_2),' m']) 
         end
         i=i+1;
     end
-    disp(['1st Overshoot Angle = ',num2str(OSA_1),' m'])
-    disp(['2st Overshoot Angle = ',num2str(OSA_2),' m']) 
+       
 end
 
 

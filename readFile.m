@@ -21,14 +21,12 @@ function data = readFile(filename)
         parts = strsplit(line, '%'); % Split line at the '%' symbol
         if length(parts) == 2
             value = str2double(strtrim(parts{1})); % Convert the first part to a number
-            label = strtrim(parts{2});            % Get the label from the second part
+            label_with_unit = strtrim(parts{2});            % Get the label from the second part
+            label = (strsplit(line, '(')){1}; %supress the unit
             
             if ~isempty(label) %if the label is not valid
                 label = strrep(label, '+', '_plus');
                 label = strrep(label, '-', '_minus');
-                if strcmp(label, 't') && isfield(data, 't')
-                    label = 't_p'; % Rename to `t_R` if `t` already exists
-                end
                 data.(label) = value;
             end
         end

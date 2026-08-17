@@ -27,16 +27,16 @@ Input files (.txt) define ship-specific parameters.
 main dimension: ship’s length, beam, mean draught, block coefficient, longitudinal position of 
 center of gravity 
 
-Hydrostatic properties: Added mass and added moment of inertia
+Hydrostatic properties: Dimensionless added mass and added moment of inertia
 
 Initial values: initial/cruise ship speed, initial rudder angle, rate of turn of rudder, Cruise propeller rate of turn
 ⚠️ the rudder turning evolution is linear in the code
 
-Hydrodynamic coefficients: Derived from experiments or empirical formulas.
+Hydrodynamic coefficients: Dimensionless values derived from experiments or empirical formulas.
 
 Propeller parameters: propeller diameter, thrust deduction factor, longitudinal positions of propeller, effective wake fraction in straight motion and propeller open water coefficients
 
-Rudder parameters: number of rudder, rudder span, factor of lateral force due to steering, application point of lateral force factor due to steering, deduction factor due to rudder resistance, ratio of wake fraction at propeller and rudder positions, experimental constant for expressing rudder longitudinal incoming flow, longitudinal positions of rudder, flow straightening factor due to yaw motion, rudder aspect ratio, flow straightening factor due to sway motion for both starboard and port side turnings 
+Rudder parameters: number of rudder, rudder span, factor of lateral force due to steering, application point of lateral force factor due to steering, deduction factor due to rudder resistance, ratio of wake fraction at propeller and rudder positions, experimental constant for expressing rudder longitudinal incoming flow, longitudinal positions of rudder, flow straightening factor due to yaw motion, rudder aspect ratio,profile area of moveable part of rudder, flow straightening factor due to sway motion for both starboard and port side turnings 
 ⚠️ only 1 rudder is currently supported
 
 Example input files for KVLCC1 are based on reference [2] and [3]
