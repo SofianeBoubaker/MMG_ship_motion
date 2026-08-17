@@ -45,15 +45,15 @@ Data for KVLCC2 are from reference[1] and KVLCC1 are based on reference [2]
 
 ## Validation
 
-The code was verified using experimental data from [2]. The comparison between experimental and simulated results for maneuvering tests is summarized below. They show errors lower than 20% in maximum. 
+The code was verified using experimental data from [2]. The comparison between experimental and simulated results for KVLCC1 maneuvering tests is summarized below.
 
 ### Turning (35° &amp; -35°)
 
 
 | Parameter         | exp (stb) | sim (stb) | error (%) | exp (port) | sim (port) | error (%) |
 | ----------------- | --------- | --------- | --------- | ---------- | ---------- | --------- |
-| Advance (-)       | 3.28      | 3.34      | 2%        | 3.19       | 3.20       | 0%        |
-| Turning Diam. (-) | 3.28      | 3.23      | 2%        | 3.07       | 2.97       | 3%        |
+| Advance (-)       | 3.28      | 3.34      | 1.7%        | 3.19       | 3.20       | 0.2%        |
+| Turning Diam. (-) | 3.28      | 3.23      | 1.6%        | 3.07       | 2.97       | 3.4%        |
 | Transfer (-)      | 1.3       | 1.43      | 10%       | 1.17       | 1.31       | 12%       |
 
 
@@ -62,8 +62,8 @@ The code was verified using experimental data from [2]. The comparison between e
 
 | Parameter   | exp (stb) | sim (stb) | error (%) | exp (port) | sim (port) | error (%) |
 | ----------- | --------- | --------- | --------- | ---------- | ---------- | --------- |
-| OSA 1 (deg) | 8.4       | 5.63      | 33%       | 10         | 10.27      | 3%        |
-| OSA 2 (deg) | 19.6      | 19.21     | 2%        | 16.1       | 15.83      | 2%        |
+| OSA 1 (deg) | 8.4       | 5.63      | 33%       | 10         | 10.27      | 2.7%        |
+| OSA 2 (deg) | 19.6      | 19.21     | 2.0%        | 16.1       | 15.83      | 1.7%        |
 
 
 ### Zigzag (20°/-20°)
@@ -71,7 +71,7 @@ The code was verified using experimental data from [2]. The comparison between e
 
 | Parameter   | exp (stb) | sim (stb) | error (%) | exp (port) | sim (port) | error (%) |
 | ----------- | --------- | --------- | --------- | ---------- | ---------- | --------- |
-| OSA 1 (deg) | 13.9      | 15.578    | 12%       | 15.4       | 15.35      | 0%        |
+| OSA 1 (deg) | 13.9      | 15.578    | 12%       | 15.4       | 15.35      | 0.3%        |
 | OSA 2 (deg) | 15.5      | 18.353    | 18%       | 13.2       | 15.07      | 14%       |
 
 ---
