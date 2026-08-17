@@ -6,9 +6,9 @@ A Python project simulating ship maneuvering motion in calm water using the **MM
 
 ## Project Structure
 
-- **`main.py`**: Initializes, runs the simulation, and plots results.
-- **`solver.py`**: Implements the Runge-Kutta solver.
-- **`MMG_3DOF.py`**: Defines the equations of motion (`f(X, t)`) 
+- **`main`**: Initializes, runs the simulation, and plots results.
+- **`solver`**: Implements the Runge-Kutta solver.
+- **`MMG_3DOF`**: Defines the equations of motion (`f(X, t)`) 
 - **Input Files (`.txt`)**: Contains ship parameters: dimensions, initial state, propeller/rudder characteristics and hull data.
 
 ## How to Run
@@ -29,7 +29,7 @@ center of gravity
 
 Hydrostatic properties: Added mass and added moment of inertia
 
-Initial values: initial/cruise ship speed, initial rudder angle, rate of turn of rudder, initial/Cruise propeller rate of turn
+Initial values: initial/cruise ship speed, initial rudder angle, rate of turn of rudder, Cruise propeller rate of turn
 
 Hydrodynamic coefficients: Derived from experiments or empirical formulas.
 
@@ -39,9 +39,10 @@ Rudder parameters: number of rudder, rudder span, factor of lateral force due to
 for both starboard and port side turnings 
 
 Example input files for KVLCC1 are based on reference [2] and [3]
+
 ---
 
-Reference
+## Reference
 
 [1] Yoshimura, Y., Yasukawa, H., Sakuno, R., (2019, February). Practical maneuvering simulation method of ships considering the roll-coupling effect 
 DOI: https://doi.org/10.1007/s00773-014-0293-y

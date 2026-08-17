@@ -4,7 +4,6 @@
 0.145		%d
 0.661		%C_B
 -0.035		%LCG
-1025		%rho
 
 %HYDROSTATIC PROPERTIES
 0.0095		%m_x
