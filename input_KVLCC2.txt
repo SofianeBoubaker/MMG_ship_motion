@@ -11,10 +11,10 @@
 0.011		%J_z (kg/)
 
 %INITIAL VALUES
-15.5		%U_initial (m/s)
+7.974		%U_initial (m/s)
 0		    %delta_initial (deg)
 2.34		%delta_star (deg/s)
-1.53       %n_p (rps)
+1.53        %n_p (rps)
 
 %HYDRODYNAMIC DERIVATIVES
 -0.022		%X_0 (-)
