@@ -7,7 +7,7 @@ data.('dt_r') = input('rudder execution time step (s): ');
 disp('info: rudder evolution angle is linear: ');
 data.('T_final') = input('simulation time (s): ');
 data.('delta_c') = input('critical rudder angle (deg): ');
-data.('rho') =  1025 %m3/s water density
+data.('rho') =  1025; %m3/s water density
 
 [t,y,delta] = solver(data,motion);
 
