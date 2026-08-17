@@ -22,7 +22,8 @@ function data = readFile(filename)
         if length(parts) == 2
             value = str2double(strtrim(parts{1})); % Convert the first part to a number
             label_with_unit = strtrim(parts{2});            % Get the label from the second part
-            label = strtrim(strsplit(label_with_unit,'('){1}); %supress the unit
+            label_split = strsplit(label_with_unit,'('); 
+            label = strtrim(label_split{1}); %supress the unit
             
             if ~isempty(label) %if the label is not valid
                 label = strrep(label, '+', '_plus');
