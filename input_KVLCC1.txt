@@ -14,7 +14,6 @@
 0.76		%U_initial
 0		    %delta_initial
 24.5		%delta_star
-17.69		%n_initial
 17.69		%n_p
 
 %HYDRODYNAMIC DERIVATIVES
