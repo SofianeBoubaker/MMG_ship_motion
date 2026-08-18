@@ -78,6 +78,6 @@ The code was verified using experimental data from [2]. The comparison between e
 
 ## Reference
 
-[1] Yasukawa, H., Yoshimura, Y. Introduction of MMG standard method for ship maneuvering predictions. J Mar Sci Technol 20, 37–52 (2015). https://doi.org/10.1007/s00773-014-0293-y
+[1] Yasukawa, H., Yoshimura, Y. (2015). Introduction of MMG standard method for ship maneuvering predictions. J Mar Sci Technol 20, 37–52. https://doi.org/10.1007/s00773-014-0293-y
 
-[2] Yoshimura, Y., Ueno, M., & Tsukada, Y. (2008). Analysis of steady hydrodynamic force components and prediction of manoeuvring ship motion with KVLCC1, KVLCC2 and KCS. In Workshop Proceedings of SIMMAN2008 (Vol. 1, pp. E80-E86).
+[2] Aksu, E., & Köse, E. (2017). Evaluation of Mathematical Models for Tankers' Maneuvering Motions. Journal of ETA Maritime Science, 5(1), 95-109. https://doi.org/10.5505/jems.2017.52523
