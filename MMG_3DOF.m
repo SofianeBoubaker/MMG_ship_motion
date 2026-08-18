@@ -46,7 +46,11 @@ N_H = Ndim * (Nv * vm_p + Nr * r_p + Nvvv * vm_p^3 + Nvvr * vm_p^2 * r_p + Nvrr 
 if (data.nb_rud) == 1 
     
     beta_p = beta - data.x_p/data.L * r_p;
-    w_p = data.w_p0 * (1 - (1 - cos(beta_p)^2) * (1 - abs(beta_p)));
+    w_p = data.w_p0 * exp(-4*beta_p^2);
+    %w_p = 1 - (1 - data.w_p0) * (1 + (1 - np.cos(beta_p)^2 * (1 - np.abs(beta_p)));
+    %w_p = 1 - (1 - data.w_p0) * (1 + (1 - exp(-C1 * abs(beta_p))) * (C2 - 1));
+    %%For the KVLCC1, C1 = 2 ,C2 = 1.6 (if beta_p>0) or C2 = 1.1 (if beta_p<0) 
+    
     J_p = u * (1 - w_p) / (data.n_p * data.D);
     K_T = data.k_0 + data.k_1 * J_p + data.k_2 * J_p^2;
     T_p = data.rho * data.n_p^2 * data.D^4 * K_T;
@@ -68,7 +72,7 @@ if (data.nb_rud) == 1
     
     X_R = -(1 - data.t_R) * Fn * sin(delta);
     Y_R = -(1 + data.a_H) * Fn * cos(delta);
-    N_R = -(data.x_R + data.a_H * data.x_H * data.L) * Fn * cos(delta);
+    N_R = -(data.x_R + data.a_H * data.x_H) * Fn * cos(delta);
     
 elseif (data.nb_rud) == 2
     %The formula are not implemented for 2 rudder in this assignment
