@@ -57,8 +57,8 @@ YH = Fdim * (Yv_prime * vm_prime + Yr_prime * r_prime + Yvvv_prime * vm_prime^3 
 NH = Ndim * (Nv_prime * vm_prime + Nr_prime * r_prime + Nvvv_prime * vm_prime^3 + Nvvr_prime * vm_prime^2 * r_prime + Nvrr_prime * vm_prime * r_prime^2 + Nrrr_prime * r_prime^3);
 
 if (data.nb_rud) == 1 
-    %%Propeller hydrodynamic derivative calculation
     
+    %%Propeller hydrodynamic derivative calculation
     betaP = beta - data.xP/data.L * r_prime;
 
     %wake factor calculation
@@ -113,8 +113,6 @@ if (data.nb_rud) == 1
 elseif (data.nb_rud) == 2
     error("The formula are not implemented for 2 rudders yet");
 end
-
-%% Equation of motion system writing
 
 FX = ( XH + XR + XP ) + vm * M(2,2) * r + r^2 * data.xG * m;
 FY = ( YH + YR ) - M(1,1) * u * r;

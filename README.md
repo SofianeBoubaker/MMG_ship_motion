@@ -1,6 +1,6 @@
 # MMG 3DOF Ship Maneuvering Simulation
 
-A Python project simulating ship maneuvering motion in calm water using the **MMG 3DOF model** of Yasukawa &amp; Yoshimura [1]. The simulation solves the 3-degree-of-freedom equations of motion (surge, sway, yaw) with a **4th-order Runge-Kutta solver**. Turning and zigzag motion simulations are available.
+A Python project simulating ship maneuvering motion in calm water using the **MMG 3DOF model** of Yasukawa &amp; Yoshimura [1]. The simulation solves the 3-degree-of-freedom equations of motion at midship (surge, sway, yaw) with a **4th-order Runge-Kutta solver**. Turning and zigzag motion simulations are available.
 
 ---
 
@@ -15,7 +15,7 @@ A Python project simulating ship maneuvering motion in calm water using the **MM
 
 1. Ensure input `.txt` files are in the project directory.
 2. Run the main file
-3. Results (trajectories, velocities) are plotted automatically.
+3. Midship results (trajectories, velocities) are plotted automatically 
 
 ---
 
