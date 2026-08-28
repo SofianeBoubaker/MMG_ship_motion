@@ -1,6 +1,6 @@
 function Z_dot = MMG_3DOF(~,Z,data,delta_deg)
 
-% MMG 3DOF: Computes the time derivatives of the ship s state vector [u, v, r]
+% MMG 3DOF: Computes the time derivatives of the ship s state vector [u, vm, r]
 % using the MMG 3-degree-of-freedom model from  Yasukawa, H. & Yoshimura, Y. (2015)
 % Inputs:
 %   Z: State vector [u, vm, r] (surge velocity, sway velocity, yaw rate) at midship
@@ -122,4 +122,3 @@ FN = ( NH + NR ) - data.xG * m * u * r;
 F  = [FX;FY;FN];
 
 Z_dot = M \ F; %the system is set at the midship section
-
