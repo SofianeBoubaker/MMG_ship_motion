@@ -1,6 +1,6 @@
 # MMG 3DOF Ship Maneuvering Simulation
 
-A Python project simulating ship maneuvering motion in calm water using the **MMG 3DOF model** of Yasukawa &amp; Yoshimura [1]. The simulation solves the 3-degree-of-freedom equations of motion at midship (surge, sway, yaw) with a **4th-order Runge-Kutta solver**. Turning and zigzag motion simulations are available.
+A Matlab project simulating ship maneuvering motion in calm water using the **MMG 3DOF model** of Yasukawa &amp; Yoshimura [1]. The simulation solves the 3-degree-of-freedom equations of motion at midship (surge, sway, yaw) with a **4th-order Runge-Kutta solver**. Turning and zigzag motion simulations are available.
 
 ---
 
@@ -53,8 +53,8 @@ The code results  (Sim) for KVLCC2-L7-model are compared with experimental data 
 
 | Parameters         | Exp-Ref (+35) | Sim-Ref (+35) | Sim (+35) | Exp-Ref (-35) | Sim-Ref (-35) | Sim (-35) |
 | ------------------ | ------------- | ------------- | --------- | ------------- | ------------- | --------- |
-| Advance' (-)       | 3.25          | 3.31          | 3.43      | 3.11          | 3.26          | 3.28      |
-| Tactical Diam' (-) | 3.34          | 3.36          | 3.41      | 3.08          | 3.26          | 3.14      |
+| Advance' (-)       | 3.25          | 3.31          | 3.47      | 3.11          | 3.26          | 3.32      |
+| Tactical Diam' (-) | 3.34          | 3.36          | 3.43      | 3.08          | 3.26          | 3.15      |
 
 ### Zigzag (10°/-10°)
 
