@@ -5,7 +5,7 @@ function [t,y,delta_vec] = solver(data,motion)
 %   motion: 0 for turning test, 1 for zig-zag test
 % Outputs:
 %   t: Time vector (s)
-%   y: State variables [u, v, r] over time at the center of gravity
+%   y: State variables [u, vm, r] over time at midship
 %   delta_vec: Rudder angle history (deg)
 
 
