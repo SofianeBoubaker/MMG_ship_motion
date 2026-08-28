@@ -37,7 +37,7 @@ Propeller parameters: propeller diameter, thrust deduction factor, longitudinal 
 Wake coefficient in straight motion wP0 and wake constants C1 and C2 are optional for a more precise wake calculation  
 
 Rudder parameters: number of rudder, rudder span, factor of lateral force due to steering, dimensionless application point of lateral force factor due to steering, deduction factor due to rudder resistance, ratio of wake fraction at propeller and rudder positions, experimental constant for expressing rudder longitudinal incoming flow,  flow straightening factor due to yaw motion, rudder aspect ratio,profile area of moveable part of rudder, flow straightening factor due to sway motion for both starboard and port side turnings, and the dimensionless longitudinal positions of rudder (set to -0.5 if not filled)
-⚠�? only 1 rudder is currently supported
+⚠ Only 1 rudder is currently supported
 
 
 Data for KVLCC2 are from reference[1] 
