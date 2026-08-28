@@ -1,11 +1,11 @@
-function Z_dot = MMG_3DOF(~,Z,data,delta)
+function Z_dot = MMG_3DOF(~,Z,data,delta_deg)
 
-delta = delta * pi/180;
+delta = delta_deg * pi/180;
 u = Z(1);
 v = Z(2);
 r = Z(3);
 
-vm = v - data.LCG * r;
+vm = v - data.xG * r;
 beta = atan(-vm/u);
 U = sqrt(u^2 + vm^2);
 Fdim  = 0.5*data.rho*data.L*data.d*U^2;%dimensionless factor (N)
@@ -13,76 +13,94 @@ Ndim  = Fdim * data.L;
 Mdim  = 0.5*data.rho*data.L^2*data.d;
 Idim  = Mdim * data.L^2;
 
-m     = data.rho * data.C_B * data.L * data.B * data.d;
+m     = data.rho * data.CB * data.L * data.B * data.d;
 Iz    = m * (0.25*data.L)^2; %approximation
-M     = [m+data.m_x*Mdim 0 0; 0 m+data.m_y*Mdim data.LCG*m; 0 data.LCG*m Iz+data.LCG^2*m+data.J_z*Idim]; 
+M     = [m+data.mx_prime*Mdim 0 0; 0 m+data.my_prime*Mdim data.xG*m; 0 data.xG*m Iz+data.xG^2*m+data.Jz_prime*Idim]; 
 
 %non-dimensional derivatives coefficients
-X0    =  abs(data.X_0); %convention x0>0 ensures that the resistance opposes the surge motion because XH=-X0<0
-Xvv   =  data.X_vv;
-Xvvvv =  data.X_vvvv;
-Xrr   =  data.X_rr;
-Xvr   =  data.X_vr;
-Yv    =  data.Y_v;
-Yvvv  =  data.Y_vvv;
-Yr    =  data.Y_r;
-Yrrr  =  data.Y_rrr;
-Yvrr  =  data.Y_vrr; 
-Yvvr  =  data.Y_vvr;
-Nv    =  data.N_v;
-Nvvv  =  data.N_vvv;
-Nr    =  data.N_r;
-Nrrr  =  data.N_rrr;
-Nvrr  =  data.N_vrr;
-Nvvr  =  data.N_vvr;
+X0_prime    =  abs(data.X0_prime); %convention x0>0 ensures that the resistance opposes the surge motion because XH=-X0<0
+Xvv_prime   =  data.Xvv_prime;
+Xvvvv_prime =  data.Xvvvv_prime;
+Xrr_prime   =  data.Xrr_prime;
+Xvr_prime   =  data.Xvr_prime;
+Yv_prime    =  data.Yv_prime;
+Yvvv_prime  =  data.Yvvv_prime;
+Yr_prime    =  data.Yr_prime;
+Yrrr_prime  =  data.Yrrr_prime;
+Yvrr_prime  =  data.Yvrr_prime; 
+Yvvr_prime  =  data.Yvvr_prime;
+Nv_prime    =  data.Nv_prime;
+Nvvv_prime  =  data.Nvvv_prime;
+Nr_prime    =  data.Nr_prime;
+Nrrr_prime  =  data.Nrrr_prime;
+Nvrr_prime  =  data.Nvrr_prime;
+Nvvr_prime  =  data.Nvvr_prime;
 
-vm_p  =  vm/U;
-r_p   =  r * data.L/U;
+vm_prime  =  vm/U;
+r_prime   =  r * data.L/U;
 
-X_H = Fdim * (-X0 + Xvv * vm_p^2 + Xvr * vm_p * r_p + Xrr * r_p^2 + Xvvvv * vm_p^4);
-Y_H = Fdim * (Yv * vm_p + Yr * r_p + Yvvv * vm_p^3 + Yvvr * vm_p^2 * r_p + Yvrr * vm_p * r_p^2 + Yrrr * r_p^3);
-N_H = Ndim * (Nv * vm_p + Nr * r_p + Nvvv * vm_p^3 + Nvvr * vm_p^2 * r_p + Nvrr * vm_p * r_p^2 + Nrrr * r_p^3);
+XH = Fdim * (-X0_prime + Xvv_prime * vm_prime^2 + Xvr_prime * vm_prime * r_prime + Xrr_prime * r_prime^2 + Xvvvv_prime * vm_prime^4);
+YH = Fdim * (Yv_prime * vm_prime + Yr_prime * r_prime + Yvvv_prime * vm_prime^3 + Yvvr_prime * vm_prime^2 * r_prime + Yvrr_prime * vm_prime * r_prime^2 + Yrrr_prime * r_prime^3);
+NH = Ndim * (Nv_prime * vm_prime + Nr_prime * r_prime + Nvvv_prime * vm_prime^3 + Nvvr_prime * vm_prime^2 * r_prime + Nvrr_prime * vm_prime * r_prime^2 + Nrrr_prime * r_prime^3);
 
 if (data.nb_rud) == 1 
     
-    beta_p = beta - data.x_p/data.L * r_p;
-    w_p = data.w_p0 * exp(-4*beta_p^2);
-    %w_p = 1 - (1 - data.w_p0) * (1 + (1 - np.cos(beta_p)^2 * (1 - np.abs(beta_p)));
-    %w_p = 1 - (1 - data.w_p0) * (1 + (1 - exp(-C1 * abs(beta_p))) * (C2 - 1));
-    %%For the KVLCC1, C1 = 2 ,C2 = 1.6 (if beta_p>0) or C2 = 1.1 (if beta_p<0) 
+    betaP = beta - data.xP/data.L * r_prime;
+    if isfield(data,'wP0')
+        if isfield(data,'C1') || isfield(data,'C2Minus') || isfield(data,'C2Plus')
+            if betaP > 0
+                C2 = data.C2Plus;
+            else
+                C2 = data.C2Minus;
+            end
+            wP = 1 - (1 - data.wP0) * (1 + (1 - exp(-data.C1 * abs(betaP))) * (C2 - 1));
+        else
+            wP = data.wP0 * exp(-4*betaP^2);
+        end
+    elseif isfield(data,'wP')
+        wP = data.wP;
+    else 
+        error('wP0 or wP are missing')
+    end      
+           
+    JP = u * (1 - wP) / (data.nP * data.DP);
+    KT = data.k0 + data.k1 * JP + data.k2 * JP^2;
+    TP = data.rho * data.nP^2 * data.DP^4 * KT;
+    XP = (1 - data.tP) * TP;
     
-    J_p = u * (1 - w_p) / (data.n_p * data.D);
-    K_T = data.k_0 + data.k_1 * J_p + data.k_2 * J_p^2;
-    T_p = data.rho * data.n_p^2 * data.D^4 * K_T;
-    X_p = (1 - data.t_p) * T_p;
-    
-    beta_R = beta - data.l_R * r_p;
-    if  beta_R > 0
-        gamma_R = data.gamma_plus;
+    betaR = beta - data.lR_prime * r_prime;
+    if  betaR > 0
+        gammaR = data.gammaPlus;
     else
-        gamma_R = data.gamma_minus;
+        gammaR = data.gammaMinus;
     end
-    v_R = U * gamma_R * beta_R;
-    eta = data.D/data.H;
-    u_R = data.epsilon * u * (1 - w_p) * sqrt(eta * (1 + data.kapa * (sqrt(1 + 8 * K_T/pi/J_p^2) - 1))^2 + (1 - eta));
-    alpha_R = delta - atan(v_R/u_R);
-    U_R = sqrt(u_R^2+ v_R^2);
-    f_alpha = data.lambda * 6.13 / (data.lambda +  2.25);
-    Fn = 0.5 * data.rho * data.A_R * U_R^2 * f_alpha * sin(alpha_R);
+    vR = U * gammaR * betaR;
+    eta = data.DP/data.HR;
+    uR = data.epsilon * u * (1 - wP) * sqrt(eta * (1 + data.kapa * (sqrt(1 + 8 * KT/pi/JP^2) - 1))^2 + (1 - eta));
+    alphaR = delta - atan(vR/uR);
+    UR = sqrt(uR^2+ vR^2);
+    falpha = data.lambda * 6.13 / (data.lambda +  2.25);
+    Fn = 0.5 * data.rho * data.AR * UR^2 * falpha * sin(alphaR);
     
-    X_R = -(1 - data.t_R) * Fn * sin(delta);
-    Y_R = -(1 + data.a_H) * Fn * cos(delta);
-    N_R = -(data.x_R + data.a_H * data.x_H) * Fn * cos(delta);
+    if ~isfield(data,'xR_prime')
+        data.('xR_prime') = -0.5;
+    end
+    
+    XR = -(1 - data.tR) * Fn * sin(delta);
+    YR = -(1 + data.aH) * Fn * cos(delta);
+    xR = data.xR_prime *  data.L;
+    xH = data.xH_prime * data.L;
+    NR = -(xR + data.aH * xH) * Fn * cos(delta);
     
 elseif (data.nb_rud) == 2
-    %The formula are not implemented for 2 rudder in this assignment
+    error("The formula are not implemented for 2 rudders yet");
 end
 
-FX = ( X_H + X_R + X_p ) + vm * M(2,2) * r + r^2 * data.LCG * m;
-FY = ( Y_H + Y_R ) - M(1,1) * u * r;
-FN = ( N_H + N_R ) - data.LCG * m * u * r;
+FX = ( XH + XR + XP ) + vm * M(2,2) * r + r^2 * data.xG * m;
+FY = ( YH + YR ) - M(1,1) * u * r;
+FN = ( NH + NR ) - data.xG * m * u * r;
 F  = [FX;FY;FN];
 
 Z_dot = M \ F;
-Z_dot(2) = Z_dot(2) + data.LCG * Z_dot(3); %v_dot = vm_dot + Xg * r_dot
+Z_dot(2) = Z_dot(2) + data.xG * Z_dot(3); %v_dot = vm_dot + Xg * r_dot
 

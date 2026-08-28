@@ -30,54 +30,49 @@ center of gravity
 Hydrostatic properties: Dimensionless added mass and added moment of inertia
 
 Initial values: initial/cruise ship speed, initial rudder angle, rate of turn of rudder, Cruise propeller rate of turn
-⚠️ the rudder turning evolution is linear in the code
 
 Hydrodynamic coefficients: Dimensionless values derived from experiments or empirical formulas.
 
-Propeller parameters: propeller diameter, thrust deduction factor, longitudinal positions of propeller, effective wake fraction in straight motion and propeller open water coefficients
+Propeller parameters: propeller diameter, thrust deduction factor, longitudinal positions of propeller, propeller open water coefficients and wake coefficient.
+Wake coefficient in straight motion wP0 and wake constants C1 and C2 are optional for a more precise wake calculation  
 
-Rudder parameters: number of rudder, rudder span, factor of lateral force due to steering, application point of lateral force factor due to steering, deduction factor due to rudder resistance, ratio of wake fraction at propeller and rudder positions, experimental constant for expressing rudder longitudinal incoming flow, longitudinal positions of rudder, flow straightening factor due to yaw motion, rudder aspect ratio,profile area of moveable part of rudder, flow straightening factor due to sway motion for both starboard and port side turnings 
-⚠️ only 1 rudder is currently supported
+Rudder parameters: number of rudder, rudder span, factor of lateral force due to steering, dimensionless application point of lateral force factor due to steering, deduction factor due to rudder resistance, ratio of wake fraction at propeller and rudder positions, experimental constant for expressing rudder longitudinal incoming flow,  flow straightening factor due to yaw motion, rudder aspect ratio,profile area of moveable part of rudder, flow straightening factor due to sway motion for both starboard and port side turnings, and the dimensionless longitudinal positions of rudder (set to -0.5 if not filled)
+⚠�? only 1 rudder is currently supported
 
-Data for KVLCC2 are from reference[1] and KVLCC1 are based on reference [2] 
+
+Data for KVLCC2 are from reference[1] 
 
 ---
 
 ## Validation
 
-The code was verified using experimental data from [2]. The comparison between experimental and simulated results for KVLCC1 maneuvering tests is summarized below.
+The code results  (Sim) for KVLCC2-L7-model are compared with experimental data (Exp-Ref) and simulation (Sim-Ref) results from [1]. 
 
 ### Turning (35° &amp; -35°)
 
 
-| Parameter          | exp (stb) | sim (stb) | error (%) | exp (port) | sim (port) | error (%) |
-| ------------------ | --------- | --------- | --------- | ---------- | ---------- | --------- |
-| Advance (-)        | 3.28      | 3.38      | 3.1%      | 3.19       | 3.25       | 1.8%      |
-| Tactical Diam. (-) | 3.28      | 3.09      | 5.9%      | 3.07       | 2.87       | 6.4%      |
-| Transfer (-)       | 1.3       | 1.38      | 6%        | 1.17       | 1.25       | 7%        |
-
+| Parameters         | Exp-Ref (+35) | Sim-Ref (+35) | Sim (+35) | Exp-Ref (-35) | Sim-Ref (-35) | Sim (-35) |
+| ------------------ | ------------- | ------------- | --------- | ------------- | ------------- | --------- |
+| Advance' (-)       | 3.25          | 3.31          | 3.43      | 3.11          | 3.26          | 3.28      |
+| Tactical Diam' (-) | 3.34          | 3.36          | 3.41      | 3.08          | 3.26          | 3.14      |
 
 ### Zigzag (10°/-10°)
 
 
-| Parameter   | exp (stb) | sim (stb) | error (%) | exp (port) | sim (port) | error (%) |
-| ----------- | --------- | --------- | --------- | ---------- | ---------- | --------- |
-| OSA 1 (deg) | 8.4       | 9.4       | 12%       | 10         | 9.7        | 3.2%      |
-| OSA 2 (deg) | 19.6      | 24.2      | 23.6%     | 16.1       | 14.1       | 12.4%     |
-
+| Parameters  | Exp-Ref (10/10) | Sim-Ref (10/10) | Sim (10/10) | Exp-Ref (-10/-10) | Sim-Ref (-10/-10) | Sim (-10/-10) |
+| ----------- | --------------- | --------------- | ----------- | ----------------- | ----------------- | ------------- |
+| OSA 1 (deg) | 8.20            | 5.20            | 5.86        | 9.50              | 7,60              | 8.22          |
+| OSA 2 (deg) | 21.9            | 15.8            | 15.7        | 15.0              | 10.2              | 10.51         |
 
 ### Zigzag (20°/-20°)
 
 
-| Parameter   | exp (stb) | sim (stb) | error (%) | exp (port) | sim (port) | error (%) |
-| ----------- | --------- | --------- | --------- | ---------- | ---------- | --------- |
-| OSA 1 (deg) | 13.9      | 15.0      | 8%        | 15.4       | 21.6       | 40.5%     |
-| OSA 2 (deg) | 15.5      | 19.5      | 26%       | 13.2       | 15.9       | 20%       |
+| Parameters  | Exp-Ref (20/20) | Sim-Ref (20/20) | Sim (20/20) | Exp-Ref (-20/-20) | Sim-Ref (-20/-20) | Sim (-20/-20) |
+| ----------- | --------------- | --------------- | ----------- | ----------------- | ----------------- | ------------- |
+| OSA 1 (deg) | 13.7            | 10.9            | 12.3        | 15.1              | 14.5              | 16.0          |
 
 ---
 
 ## Reference
 
 [1] Yasukawa, H., Yoshimura, Y. (2015). Introduction of MMG standard method for ship maneuvering predictions. J Mar Sci Technol 20, 37–52. https://doi.org/10.1007/s00773-014-0293-y
-
-[2] Aksu, E., & Köse, E. (2017). Evaluation of Mathematical Models for Tankers' Maneuvering Motions. Journal of ETA Maritime Science, 5(1), 95-109. https://doi.org/10.5505/jems.2017.52523

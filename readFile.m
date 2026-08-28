@@ -25,9 +25,7 @@ function data = readFile(filename)
             label_split = strsplit(label_with_unit,'('); 
             label = strtrim(label_split{1}); %supress the unit
             
-            if ~isempty(label) %if the label is not valid
-                label = strrep(label, '+', '_plus');
-                label = strrep(label, '-', '_minus');
+            if ~isempty(label) %if the label is valid
                 data.(label) = value;
             end
         end

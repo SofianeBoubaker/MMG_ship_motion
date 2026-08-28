@@ -1,0 +1,67 @@
+%MAIN DIMENSION
+320         %L (m)
+58      	%B (m)
+20.8		%d (m)
+0.81		%CB (-)
+11.1		%xG (m)
+
+%HYDROSTATIC PROPERTIES
+0.022   	%mx_prime (-)
+0.223		%my_prime (-)
+0.011   	%Jz_prime (-)
+
+%INITIAL VALUES
+7.973		%U0 (m/s)
+0		    %delta0 (deg)
+1.76		%delta_speed (deg/s)
+1.53    	%nP (rps)
+
+%HYDRODYNAMIC DERIVATIVES
+0.022		%X0_prime (-)
+-0.040		%Xvv_prime (-)
+0.771		%Xvvvv_prime (-)
+0.011		%Xrr_prime (-)
+-0.002		%Xvr_prime (-)
+-0.315		%Yv_prime (-)
+-1.607		%Yvvv_prime (-)
+0.083		%Yr_prime (-)
+0.008		%Yrrr_prime (-)
+-0.391		%Yvrr_prime (-)
+0.379		%Yvvr_prime (-)
+-0.137		%Nv_prime (-)
+-0.030   	%Nvvv_prime (-)
+-0.049		%Nr_prime (-)
+-0.013		%Nrrr_prime (-)
+0.055		%Nvrr_prime (-)
+-0.294		%Nvvr_prime (-)
+
+%PROPELLER PARAMETERS
+9.86		%DP (m)
+0.22		%tP (-)
+-0.48		%xP (m)
+0.293		%k0 (-)
+-0.275		%k1 (-)
+-0.139		%k2 (-)
+%0.35       %wP (-)
+%If wP0 is known (for a time dependent wake calculation) : 
+0.35		%wP0 (-)
+%Optional (to take into account asymmetry in the wake calculation) :
+%2          %C1 (-)
+%1.6        %C2Plus (-)
+%1.1        %C2Minus (-)
+
+%RUDDER PARAMETERS
+1           %nb_rud (-)
+15.8		%HR (m)
+0.312		%aH (-)
+-0.464		%xH_prime (-)
+0.387		%tR (-)
+1.09		%epsilon (-)
+0.50		%kapa (-)
+-0.71		%lR_prime (-)
+1.827		%lambda (-)
+112.5   	%AR (m2)
+0.64		%gammaPlus (-)
+0.395		%gammaMinus (-)
+%Optional (set to -0.5 if not specified) :
+%-0.5 		%xR_prime (-)
