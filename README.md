@@ -46,7 +46,7 @@ Data for KVLCC2 are from reference[1]
 
 ## Validation
 
-The code results  (Sim-Ref) for KVLCC2-L7-model are compared with experimental data (Exp-Ref) and simulation (Sim-Ref) results from [1]. 
+The code results  (Sim) for KVLCC2-L7-model are compared with experimental data (Exp-Ref) and simulation (Sim-Ref) results from [1]. 
 
 ### Turning (35° &amp; -35°)
 
